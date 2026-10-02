@@ -9,7 +9,6 @@ const FORGEJO = 'https://git.delikesance.cloud/delikesance';
 const PROJECTS = [
   { name: 'Gazes', href: `${FORGEJO}/gazes`, text: 'Streaming torrent dans le navigateur, en pair à pair.', stack: 'Go · WebRTC · BitTorrent · Next.js' },
   { name: 'AI Web Annotator', href: `${FORGEJO}/annotation-extension`, text: "Extension Chrome pour annoter une page et l'envoyer à un LLM.", stack: 'TypeScript · Chrome MV3 · Vite' },
-  { name: 'Homelab', href: FORGEJO, text: 'Infrastructure auto-hébergée, décrite en code.', stack: 'Nix · Docker · Grafana · Vault' },
 ];
 
 const SKILLS = [
