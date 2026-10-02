@@ -1,0 +1,19 @@
+# Pterodactyl Panel Reverse Proxy
+panel.delikesance.cloud {
+    reverse_proxy 127.0.0.1:8000
+}
+
+# Forgejo Git Reverse Proxy
+git.delikesance.cloud {
+    reverse_proxy 127.0.0.1:3000
+}
+
+# Angelo Clauin Portfolio
+delikesance.cloud, www.delikesance.cloud {
+    reverse_proxy 127.0.0.1:4173
+}
+
+# Local LAN / Direct access fallback
+:80 {
+    reverse_proxy 127.0.0.1:8000
+}
