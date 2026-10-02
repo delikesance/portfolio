@@ -8,24 +8,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#090d16',
-        surface: '#0f172a',
-        'surface-elevated': '#162036',
-        accent: {
-          DEFAULT: '#38bdf8',
-          hover: '#0ea5e9',
-          subtle: 'rgba(56, 189, 248, 0.12)'
-        },
-        emerald: {
-          accent: '#10b981'
-        },
-        violet: {
-          accent: '#8b5cf6'
-        }
+        background: '#09090b',
+        surface: '#151517',
+        'surface-card': '#111113',
+        'surface-raised': '#17171a',
+        muted: '#a1a1aa',
+        line: 'rgba(255, 255, 255, 0.07)',
+        accent: '#9b8afb'
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+        sans: ['DM Sans', 'system-ui', 'sans-serif'],
+        serif: ['Fraunces', 'Georgia', 'serif'],
+        mono: ['Geist Mono', 'ui-monospace', 'monospace']
       },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',

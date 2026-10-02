@@ -1,176 +1,71 @@
-import React, { useState } from 'react';
-import { EXPERIENCE_METIS } from '../data/portfolioData';
-import { 
-  Briefcase, 
-  Plane, 
-  ShieldCheck, 
-  CheckCircle2, 
-  Layers, 
-  TestTube2, 
-  Sparkles,
-  ExternalLink,
-  ChevronRight,
-  Cpu
-} from 'lucide-react';
+import React from 'react';
+import { SectionHeading } from './ui/SectionHeading';
+import { Card } from './ui/Card';
 
-export const ExperienceSection: React.FC = () => {
-  const [selectedCarrier, setSelectedCarrier] = useState<number>(0);
+const NDC = [
+  { code: 'VY', name: 'Vueling', items: ['Intégration de bout en bout : Shopping, Pricing, réservation à paiement instantané, sièges post-booking.', 'ServiceList et SeatAvailability en profondeur.', '19 fonctionnalités ancillaires validées en production.'] },
+  { code: 'V7', name: 'Volotea', items: ['Frais de carte bancaire et règlement BSP.', 'Réservation combinée ou par tronçon (per-leg).', "Correction d'un bug critique de passager dupliqué et de tarif doublé dans le sandbox Kyte."] },
+  { code: 'AFKL', name: 'Air France / KLM', items: ['Normalisation des dates de vol dans la couche adaptateur.', 'Déduplication des lignes de bagages.', 'Fallbacks résilients sur les données passagers APIS.'] },
+  { code: 'KYTE', name: 'GoKyte / GDS', items: ["Intégration de l'agrégateur GDS avec distribution des frais bancaires.", 'Durcissement des erreurs GDS hétérogènes.', 'Retry automatique pour la récupération de réservations.'] },
+];
 
-  return (
-    <section id="experience" className="py-20 relative bg-slate-950/40 border-y border-slate-800/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-          <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-mono mb-3">
-              <Briefcase className="w-3.5 h-3.5" />
-              <span>Production & B2B Travel Engineering</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Expérience Professionnelle
-            </h2>
+const SHARED = [
+  'safeClone : clonage profond rapide, sûr face aux références circulaires.',
+  'Sélection de vols unifiée et panier multi-transporteurs.',
+  'Conversion tarifaire multi-devises haute précision.',
+  'Contribution majeure au moteur de Reshop (réémission et modification de vol).',
+  "Plans de tests E2E pour l'intégration NDC Singapore Airlines (SQ).",
+];
+
+const TESTS = [
+  'Framework E2E Playwright data-driven, scénarios validés par Zod.',
+  'Pattern Page Objects modulaire.',
+  'API interne de retry pour absorber la latence des sandbox partenaires.',
+];
+
+const STACK = ['Nuxt 4', 'Vue 3.5', 'TypeScript', 'Vuetify 4', 'Pinia', 'Node.js', 'Express', 'Sequelize', 'PostgreSQL', 'Playwright', 'Zod', 'GitLab CI', 'Nix (devenv)', 'Docker'];
+
+const ListCard: React.FC<{ title: string; items: string[] }> = ({ title, items }) => (
+  <Card className="min-w-0 flex-[1_1_380px] rounded-[20px] p-7">
+    <h3 className="serif mb-4 text-[26px]">{title}</h3>
+    <ul className="list-disc space-y-2.5 pl-[18px] text-sm leading-[1.65] text-muted">
+      {items.map((i) => (
+        <li key={i}>{i}</li>
+      ))}
+    </ul>
+  </Card>
+);
+
+export const ExperienceSection: React.FC = () => (
+  <section id="experience" className="scroll-mt-16 px-[clamp(20px,4vw,80px)] pt-[clamp(72px,9vw,130px)]">
+    <SectionHeading
+      eyebrow="Expérience"
+      title="Metis Digital"
+      sub="Développeur fullstack · Perpignan · juil. 2025 à aujourd'hui. Je construis l'Online Booking Tool, une plateforme de voyage B2B où les agences cherchent, réservent et gèrent vols, hôtels, trains et locations de voitures."
+    />
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
+      {NDC.map((c) => (
+        <Card key={c.code} className="flex flex-col gap-3.5 rounded-[20px] p-7">
+          <div className="flex items-baseline justify-between gap-3">
+            <span className="serif text-[44px] leading-none text-accent">{c.code}</span>
+            <span className="text-sm font-semibold">{c.name}</span>
           </div>
-          <p className="mt-3 md:mt-0 text-sm text-slate-400 max-w-md">
-            Développement de flux transactionnels haute fiabilité, protocoles IATA NDC et automatisation de tests de bout en bout.
-          </p>
-        </div>
-
-        {/* Company Card: Metis Digital */}
-        <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-6 sm:p-8 backdrop-blur-sm shadow-xl">
-          
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-800 gap-4">
-            <div>
-              <div className="flex items-center gap-3">
-                <h3 className="text-2xl font-bold text-white tracking-tight">
-                  {EXPERIENCE_METIS.company}
-                </h3>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-sky-500/20 text-sky-300 border border-sky-500/30">
-                  {EXPERIENCE_METIS.role}
-                </span>
-              </div>
-              <p className="text-sm text-slate-400 mt-1">
-                {EXPERIENCE_METIS.location} · <span className="text-slate-300 font-medium">{EXPERIENCE_METIS.period}</span>
-              </p>
-            </div>
-
-            {/* Platform Scope Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700/80 text-xs text-slate-300">
-              <Plane className="w-4 h-4 text-sky-400" />
-              <span>Online Booking Tool (OBT) multi-services B2B</span>
-            </div>
-          </div>
-
-          {/* Role Description */}
-          <div className="mt-6 mb-8 text-slate-300 text-sm sm:text-base leading-relaxed">
-            {EXPERIENCE_METIS.description}
-          </div>
-
-          {/* Sub-section 1: Airline NDC Integrations with interactive carrier tabs */}
-          <div className="mb-10">
-            <div className="flex items-center justify-between mb-4">
-              <h4 className="text-base font-semibold text-white flex items-center gap-2">
-                <Plane className="w-4 h-4 text-sky-400" />
-                Intégrations NDC Aériennes de Bout en Bout
-              </h4>
-              <span className="text-xs font-mono text-slate-500 hidden sm:inline">
-                Sélectionnez une compagnie pour voir les spécificités
-              </span>
-            </div>
-
-            {/* Carrier Selector Buttons */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
-              {EXPERIENCE_METIS.ndcIntegrations.map((item, idx) => (
-                <button
-                  key={item.code}
-                  onClick={() => setSelectedCarrier(idx)}
-                  className={`p-3 rounded-xl text-left border transition-all ${
-                    selectedCarrier === idx
-                      ? 'bg-sky-950/40 border-sky-500/50 text-white shadow-md shadow-sky-900/20'
-                      : 'bg-slate-950/50 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700'
-                  }`}
-                >
-                  <div className="text-xs font-mono text-sky-400 font-bold">{item.code}</div>
-                  <div className="text-sm font-semibold truncate">{item.airline.split('(')[0]}</div>
-                </button>
-              ))}
-            </div>
-
-            {/* Carrier Details Box */}
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/90">
-              <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-800">
-                <span className="text-sm font-semibold text-sky-300">
-                  {EXPERIENCE_METIS.ndcIntegrations[selectedCarrier].airline}
-                </span>
-                <span className="text-xs font-mono text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-800/50">
-                  Vérifié en production
-                </span>
-              </div>
-              <ul className="space-y-2.5">
-                {EXPERIENCE_METIS.ndcIntegrations[selectedCarrier].details.map((detail, dIdx) => (
-                  <li key={dIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span>{detail}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Sub-section 2: Shared Infrastructure & Tooling */}
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="p-5 rounded-xl bg-slate-950/40 border border-slate-800">
-              <h4 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
-                <Layers className="w-4 h-4 text-indigo-400" />
-                Infrastructure Partagée & Tooling Métier
-              </h4>
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
-                {EXPERIENCE_METIS.sharedInfrastructure.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <span className="text-indigo-400 font-mono text-xs">↳</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Sub-section 3: Playwright E2E & Resilience */}
-            <div className="p-5 rounded-xl bg-slate-950/40 border border-slate-800">
-              <h4 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
-                <TestTube2 className="w-4 h-4 text-emerald-400" />
-                Qualité, Résilience & Framework E2E
-              </h4>
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
-                {EXPERIENCE_METIS.testingFramework.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <span className="text-emerald-400 font-mono text-xs">✔</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Tech Stack Pills */}
-          <div>
-            <div className="text-xs font-mono uppercase tracking-wider text-slate-500 mb-3">
-              Stack Technologique Metis Digital
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              {EXPERIENCE_METIS.techStack.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2.5 py-1 rounded-md text-xs font-mono font-medium bg-slate-800/90 text-slate-300 border border-slate-700/80 hover:border-sky-500/40 hover:text-white transition-colors"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-  );
-};
+          <ul className="list-disc space-y-2.5 pl-[18px] text-sm leading-[1.65] text-muted">
+            {c.items.map((i) => (
+              <li key={i}>{i}</li>
+            ))}
+          </ul>
+        </Card>
+      ))}
+    </div>
+    <div className="mt-4 flex flex-wrap gap-4">
+      <ListCard title="Infrastructure partagée" items={SHARED} />
+      <ListCard title="Tests & résilience" items={TESTS} />
+    </div>
+    <div className="mt-6 flex flex-wrap gap-2">
+      {STACK.map((t) => (
+        <span key={t} className="pill">{t}</span>
+      ))}
+    </div>
+  </section>
+);
