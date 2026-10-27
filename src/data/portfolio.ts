@@ -73,7 +73,7 @@ export const FEATURED: Project[] = [
       'Moteur TUI maison, client MCP (stdio, HTTP, SSE), sessions persistantes en JSONL.',
     ],
     stack: ['Rust', 'TUI', 'MCP', 'Docker', 'SQLite'],
-    links: [{ label: 'Code', href: 'https://github.com/delikesance/forge-agents' }],
+    links: [{ label: 'Code', href: 'https://github.com/delikesance/forge' }],
   },
   {
     id: 'chessy',
@@ -105,10 +105,10 @@ export interface IndexEntry {
 export const INDEX: IndexEntry[] = [
   { name: 'Hive', year: '2026', kind: 'Plugin TUI', what: 'Panneau d’arbre d’agents (coût, quotas, fil de discussion) et apprentissage automatique de skills de projet.', stack: 'TypeScript', href: 'https://github.com/delikesance/agents-tree' },
   { name: 'Claude Everywhere', year: '2026', kind: 'Extension Firefox', what: 'Poser une question à Claude sur la page lue ; réponses en flux dans un panneau latéral, bibliothèque locale.', stack: 'TypeScript · MV3', href: 'https://github.com/delikesance/claude-everywhere' },
-  { name: 'a11y-report', year: '2026', kind: 'CLI', what: 'Audits d’accessibilité (axe-core, WCAG 2.x) en rapport client français : références RGAA, score, devis de correction.', stack: 'Node.js · Playwright' },
-  { name: 'AI Web Annotator', year: '2026', kind: 'Extension Chrome', what: 'Annoter des éléments DOM et exporter capture, structure et prompt pour les outils d’IA.', stack: 'JavaScript · MV3' },
-  { name: 'JEV Highlighter', year: '2026', kind: 'Extension Chrome', what: 'Surligne les sélections préférées par un modèle sur une page de bookmaker ; ne clique et ne parie jamais.', stack: 'JavaScript · node:test' },
-  { name: 'shh', year: '2026', kind: 'Démon SSH', what: 'Messagerie directe chiffrée sur SSH, sans installation : identité = clé publique, X25519 + ChaCha20-Poly1305.', stack: 'Go' },
+  { name: 'a11y-report', year: '2026', kind: 'CLI', what: 'Audits d’accessibilité (axe-core, WCAG 2.x) en rapport client français : références RGAA, score, devis de correction.', stack: 'Node.js · Playwright', href: 'https://github.com/delikesance/a11y-report' },
+  { name: 'AI Web Annotator', year: '2026', kind: 'Extension Chrome', what: 'Annoter des éléments DOM et exporter capture, structure et prompt pour les outils d’IA.', stack: 'JavaScript · MV3', href: 'https://github.com/delikesance/annotation-extension' },
+  { name: 'JEV Highlighter', year: '2026', kind: 'Extension Chrome', what: 'Surligne les sélections préférées par un modèle sur une page de bookmaker ; ne clique et ne parie jamais.', stack: 'JavaScript · node:test', href: 'https://github.com/delikesance/jev-highlighter' },
+  { name: 'shh', year: '2026', kind: 'Démon SSH', what: 'Messagerie directe chiffrée sur SSH, sans installation : identité = clé publique, X25519 + ChaCha20-Poly1305.', stack: 'Go', href: 'https://github.com/delikesance/shh' },
   { name: 'Bot Creator', year: '2026', kind: 'Contribution', what: 'Application Flutter pour créer, lancer et superviser des bots Discord ; contribution à la refonte desktop et à la charte graphique (dépôt ketsuna-org).', stack: 'Flutter · Dart' },
 ];
 
@@ -129,13 +129,30 @@ export const EXPERIENCE = {
   stack: ['Nuxt 4', 'Vue 3', 'TypeScript', 'Vuetify', 'Pinia', 'Express', 'Sequelize', 'PostgreSQL', 'Playwright', 'Zod', 'GitLab CI', 'Nix', 'Docker'],
 };
 
-export const SKILLS: { title: string; items: string[] }[] = [
-  { title: 'Langages', items: ['TypeScript', 'Rust', 'Go', 'JavaScript', 'Python', 'Bash'] },
-  { title: 'Front', items: ['Vue 3 / Nuxt', 'React', 'Tailwind', 'Vite', 'Extensions MV3'] },
-  { title: 'Back & données', items: ['Node.js / Express', 'PostgreSQL', 'SQLite', 'Redis', 'Sequelize'] },
-  { title: 'Infra & outillage', items: ['Docker', 'Nix / NixOS', 'GitLab CI', 'Caddy', 'Self-hosting'] },
-  { title: 'Qualité', items: ['Playwright', 'Zod', 'perft & simulation', 'node:test', 'Vitest'] },
-  { title: 'Domaines', items: ['IATA NDC', 'BitTorrent', 'SSH / SFTP', 'Crypto appliquée', 'Agents LLM / MCP'] },
+/** Trois piliers, chacun adossé à une preuve concrète (projet ou poste). */
+export const PILLARS: { title: string; text: string; proof: string }[] = [
+  {
+    title: 'Livre en production',
+    text: 'Intégrations NDC de bout en bout sur une plateforme de réservation B2B : API Node, base PostgreSQL, interface Nuxt, tests E2E.',
+    proof: 'Metis Digital',
+  },
+  {
+    title: 'Construit de zéro',
+    text: 'Systèmes complets en Rust et en Go, du protocole à l’interface : terminal GPU, streaming BitTorrent, moteur d’échecs, démon SSH chiffré.',
+    proof: 'Terminus · Gazes · Chessy · shh',
+  },
+  {
+    title: 'Agents et outils IA',
+    text: 'Agent de code avec rôles et permissions appliquées dans le code, client MCP, extensions qui branchent des LLM sur le web.',
+    proof: 'Forge · Hive · Claude Everywhere',
+  },
+];
+
+/** Ordre = niveau de maîtrise, qui est aussi ce que le marché demande le plus. */
+export const SKILL_GROUPS: { title: string; items: string[]; lead?: boolean }[] = [
+  { title: 'Maîtrise', lead: true, items: ['TypeScript', 'Vue 3 / Nuxt', 'Node.js', 'PostgreSQL', 'Rust', 'Go', 'Docker', 'Tests E2E (Playwright)'] },
+  { title: 'Solide', items: ['React', 'Agents LLM / MCP', 'CI/CD (GitLab CI)', 'Sécurité appliquée (Argon2id, X25519, ML-KEM)', 'Nix / NixOS', 'Linux, Caddy'] },
+  { title: 'Aussi', items: ['JavaScript', 'Python (scripts, outillage)', 'Bash', 'Tailwind, Vite', 'SQLite, Redis', 'Extensions navigateur MV3', 'IATA NDC', 'BitTorrent, SSH / SFTP'] },
 ];
 
 export const LANGUAGES = [

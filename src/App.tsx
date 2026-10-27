@@ -1,4 +1,4 @@
-import { PERSON, FEATURED, INDEX, EXPERIENCE, SKILLS, LANGUAGES, type Project } from './data/portfolio';
+import { PERSON, FEATURED, INDEX, EXPERIENCE, SKILL_GROUPS, PILLARS, LANGUAGES, type Project } from './data/portfolio';
 
 const NAV = [
   ['travaux', 'Travaux'],
@@ -135,6 +135,18 @@ export default function App() {
       <main id="main" tabIndex={-1}>
         <Hero />
 
+        <section aria-label="Profil" className="border-t border-rule">
+          <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 md:grid-cols-3">
+            {PILLARS.map((p) => (
+              <div key={p.title}>
+                <p className="label !text-accent">{p.proof}</p>
+                <h2 className="display mt-2 text-2xl">{p.title}</h2>
+                <p className="mt-3 text-muted">{p.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <Section id="travaux" num="01" title="Travaux choisis">
           {FEATURED.map((p, i) => (
             <Featured key={p.id} p={p} i={i} />
@@ -183,11 +195,11 @@ export default function App() {
         </Section>
 
         <Section id="competences" num="04" title="Compétences">
-          <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-            {SKILLS.map((g) => (
-              <div key={g.title}>
-                <p className="label border-b border-rule pb-2">{g.title}</p>
-                <ul className="mt-3 space-y-1">
+          <div className="space-y-10">
+            {SKILL_GROUPS.map((g) => (
+              <div key={g.title} className="grid gap-x-8 gap-y-3 border-t border-rule pt-5 md:grid-cols-[10rem_1fr]">
+                <p className="label">{g.title}</p>
+                <ul className={g.lead ? 'display flex flex-wrap gap-x-8 gap-y-2 text-3xl md:text-4xl' : 'flex flex-wrap gap-x-6 gap-y-1'}>
                   {g.items.map((s) => <li key={s}>{s}</li>)}
                 </ul>
               </div>
