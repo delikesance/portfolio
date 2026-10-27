@@ -1,0 +1,67 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1.5cm,top=1.3cm,bottom=1.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\definecolor{accent}{HTML}{B93615}
+\definecolor{muted}{HTML}{5A554C}
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.1em,itemsep=1pt,topsep=2pt,parsep=0pt,label=\textcolor{accent}{\textbullet}}
+\titleformat{\section}{\scshape\small\bfseries\color{accent}\titlerule[0.4pt]\vspace{3pt}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{9pt}{4pt}
+
+\newcommand{\role}[3]{\textbf{#1} \hfill {\color{muted}\small #3}\\[-1pt]{\color{muted}#2}\par\vspace{2pt}}
+
+\begin{document}
+
+\noindent\begin{minipage}[c]{2.9cm}
+\includegraphics[width=2.8cm]{photo.jpg}
+\end{minipage}\hspace{0.5cm}%
+\begin{minipage}[c]{\dimexpr\textwidth-3.5cm\relax}
+{\fontsize{27}{29}\selectfont\bfseries Angelo Clauin}\\[4pt]
+{\large\color{accent} Développeur fullstack}\\[7pt]
+{\small\color{muted} Perpignan, France \;\textperiodcentered\; \href{mailto:clauinangelo@proton.me}{clauinangelo@proton.me}}\\[1pt]
+{\small\color{muted} \href{https://github.com/delikesance}{github.com/delikesance} \;\textperiodcentered\; \href{https://delikesance.cloud}{delikesance.cloud}}
+\end{minipage}
+
+\section{Profil}
+Développeur fullstack (TypeScript, Node.js, Vue/Nuxt). Chez Metis Digital, je livre des intégrations NDC aériennes de bout en bout, de la base SQL à l'interface, avec les tests E2E qui les tiennent. En dehors, je construis des systèmes complets en Rust et en Go : terminal GPU, agent de code, plateforme de streaming.
+
+\section{Expérience}
+\role{Metis Digital}{Développeur fullstack, plateforme de réservation B2B (vols, hôtels, trains, voitures) \textperiodcentered{} Perpignan}{juil. 2025 -- aujourd'hui}
+\begin{itemize}
+  \item \textbf{Vueling} : intégration complète (shopping, pricing, réservation avec paiement instantané, sièges post-booking) ; 19 services ancillaires vérifiés de bout en bout.
+  \item \textbf{Volotea, Air France / KLM, Kyte (GDS)} : frais de carte, règlement BSP, modes combiné / par tronçon, normalisation des données et retries sur erreurs hétérogènes.
+  \item \textbf{Tests} : framework E2E Playwright data-driven (scénarios validés par Zod, Page Objects) ; plans de test pour Singapore Airlines.
+  \item \textbf{Socle partagé} : utilitaires entre adaptateurs (clonage sûr, normalisation des vols, conversion multi-devises), contributions au moteur de reshop.
+\end{itemize}
+{\small\color{muted} Nuxt 4, Vue 3, TypeScript, Vuetify, Pinia \textperiodcentered{} Node.js, Express, Sequelize, PostgreSQL \textperiodcentered{} Playwright, Zod \textperiodcentered{} GitLab CI, Nix, Docker}
+
+\section{Projets personnels}
+\begin{itemize}
+  \item \href{https://github.com/delikesance/terminus}{\textbf{Terminus}} (Rust) : terminal GPU pour SSH, SFTP et WSL, avec coffre chiffré (Argon2id) et palette de commandes. Fork de Rio, interface et fonctions serveur ajoutées.
+  \item \href{https://github.com/delikesance/gazes}{\textbf{Gazes}} (Go) : streaming BitTorrent lu directement dans le navigateur, remux à la volée, comptes avec chiffrement de bout en bout des identifiants.
+  \item \href{https://github.com/delikesance/forge}{\textbf{Forge}} (Rust) : agent de code en terminal, rôles délégués, permissions appliquées dans le code, client MCP.
+  \item \textbf{Chessy} (Rust, React) : échecs en ligne à compétences, moteur validé par perft, classement Elo, IA réglable de 400 à 2800.
+\end{itemize}
+
+\section{Compétences}
+\begin{tabular}{@{}p{2.2cm}p{14.4cm}@{}}
+\textbf{Maîtrise} & TypeScript, Vue 3 / Nuxt, Node.js, PostgreSQL, Rust, Go, Docker, Playwright \\[2pt]
+\textbf{Solide} & React, agents LLM / MCP, GitLab CI, sécurité appliquée (Argon2id, X25519), Nix, Linux \\[2pt]
+\textbf{Aussi} & JavaScript, Python (scripts), Bash, Redis, SQLite, IATA NDC \\
+\end{tabular}
+
+\section{Langues et formation}
+Français (langue maternelle) \textperiodcentered{} Anglais (professionnel) \;\textperiodcentered{}\; Autodidacte : je programme depuis l'enfance, professionnellement depuis 2025.
+
+\end{document}
