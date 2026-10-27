@@ -2,22 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    color-scheme: light;
-    scroll-padding-top: 24px;
-  }
-  a {
-    @apply text-ink underline decoration-[#b5b5b5] decoration-1 underline-offset-[3px] hover:decoration-ink;
-  }
-  :focus-visible {
-    outline: 2px solid #111;
-    outline-offset: 4px;
+/* Direction artistique : « le manuel » — papier chaud, encre, une seule couleur d'accent. */
+:root {
+  color-scheme: light;
+  --paper: #f3efe6;
+  --ink: #15130f;
+  --muted: #6a645a;
+  --rule: #d9d3c4;
+  --accent: #b93615; /* 5.1:1 sur papier */
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --paper: #0f0f10;
+    --ink: #ece8dd;
+    --muted: #8d8a82;
+    --rule: #26262a;
+    --accent: #ff7a45;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto !important;
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    @apply bg-paper font-mono text-ink antialiased;
+    font-size: 14px;
+    line-height: 1.65;
   }
+  html, body { overflow-x: clip; }
+  body { overflow-wrap: anywhere; }
+  main:focus { outline: none; }
+  ::selection { background: var(--accent); color: var(--paper); }
+  a { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 4px; text-decoration-thickness: 1px; transition: text-decoration-color .15s, color .15s; }
+  a:hover { text-decoration-color: var(--accent); color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+}
+
+@layer components {
+  .skip-link { @apply absolute left-3 top-3 z-50 -translate-y-[200%] border border-ink bg-paper px-3 py-2 text-ink no-underline; }
+  .skip-link:focus { transform: none; }
+  .label { @apply font-mono uppercase text-muted; font-size: 11px; letter-spacing: .14em; }
+  .display { @apply font-display; font-variation-settings: 'opsz' 144, 'SOFT' 30; letter-spacing: -.02em; line-height: .95; }
+  .chip { @apply border border-rule px-2 py-0.5 text-muted; font-size: 11px; }
+}
+
+.reveal { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.caret { display: inline-block; width: .55em; height: 1em; background: var(--accent); vertical-align: -.12em; animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .caret { animation: none; }
 }
