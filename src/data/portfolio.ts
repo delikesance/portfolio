@@ -1,11 +1,11 @@
 export const PERSON = {
   name: 'Angelo Clauin',
-  role: 'Développeur fullstack',
+  role: 'Consultant indépendant en développement logiciel',
   location: 'Perpignan, France',
   email: 'clauinangelo@proton.me',
-  status: 'En poste chez Metis Digital · ouvert aux échanges techniques',
+  status: 'Freelance pour Metis Digital · télétravail · disponibilité à convenir',
   intro:
-    "Chez Metis Digital, je livre des intégrations NDC (Vueling, Volotea, Air France / KLM, Kyte) de la base SQL jusqu'à l'interface Vue, avec les tests E2E qui les tiennent debout. En dehors, je construis des systèmes complets en Rust et en Go : un terminal GPU, un agent de code, une plateforme de streaming, un moteur d'échecs. Ce qui me motive : les problèmes où le protocole, la sécurité et les performances comptent autant que l'interface.",
+    "J'interviens sur des intégrations API et des applications métier, de l'implémentation aux tests de validation. Depuis décembre 2024, j'accompagne Metis Digital en freelance sur des intégrations aériennes NDC (Vueling, Singapore Airlines, Volotea, Air France / KLM, Kyte). En parallèle, je conçois et maintiens des logiciels en Go et en Rust : une plateforme de streaming, une application de partage pair-à-pair, un terminal pour serveurs distants.",
   github: 'https://github.com/delikesance',
   cv: '/resume.pdf',
 };
@@ -61,34 +61,18 @@ export const FEATURED: Project[] = [
     links: [{ label: 'Code', href: 'https://github.com/delikesance/gazes' }],
   },
   {
-    id: 'forge',
-    name: 'Forge',
+    id: 'cubelink',
+    name: 'Cubelink',
     year: '2026',
-    kind: 'Agent de code · Rust',
-    tagline: 'Agent de programmation en terminal, écrit de zéro : boucle d’agent, outils, rôles et garde-fou de permissions appliqué dans le code.',
+    kind: 'Desktop · Rust',
+    tagline: 'Application de partage pair-à-pair pour Minecraft : rejoindre la partie d’un ami avec exactement ses mods.',
     points: [
-      'Workspace Cargo de 23 crates, dont le binaire forge-cli.',
-      '15 rôles embarqués (product-owner, architecte, ingénieur API/UI…) qui délèguent à des sous-agents.',
-      'Environnement de dev reproductible : blueprint JSON validé, Dockerfile rendu et testé par Forge.',
-      'Moteur TUI maison, client MCP (stdio, HTTP, SSE), sessions persistantes en JSONL.',
+      'Transferts multi-fichiers sur QUIC (Iroh) avec réutilisation des connexions.',
+      'Intégration Win32 de la fenêtre du jeu, agent Java pour ouvrir le LAN automatiquement, paquet Microsoft Store.',
+      'Banc de performance, tests Win32 et 18 scénarios E2E Playwright.',
     ],
-    stack: ['Rust', 'TUI', 'MCP', 'Docker', 'SQLite'],
-    links: [{ label: 'Code', href: 'https://github.com/delikesance/forge' }],
-  },
-  {
-    id: 'chessy',
-    name: 'Chessy',
-    year: '2026',
-    kind: 'Jeu en ligne · Rust + React',
-    tagline: 'Échecs en ligne où chaque joueur utilise des compétences qui modifient les règles.',
-    points: [
-      'Moteur d’échecs en Rust (CPU-bound, validé par perft) qui simule chaque compétence pour lister les coups légaux.',
-      '27 compétences jouables, classement Elo, file d’appariement, amis en temps réel, reprise après déconnexion.',
-      'Mode solo contre l’IA « Sage » réglable de 400 à 2800 Elo ; parties d’évaluation pour estimer son niveau.',
-      'Client React avec Phaser et Three.js ; raretés des compétences forgées calibrées par simulation (600 échantillons sur 12 positions fixes).',
-    ],
-    stack: ['Rust', 'React', 'Phaser', 'Three.js', 'Vite', 'SQLite', 'Docker'],
-    note: 'Projet mené avec garder500.',
+    stack: ['Rust', 'Tauri 2', 'Iroh / QUIC', 'React', 'TypeScript', 'Win32'],
+    links: [{ label: 'Code', href: 'https://github.com/delikesance/cubelink' }],
   },
 ];
 
@@ -110,41 +94,44 @@ export const INDEX: IndexEntry[] = [
   { name: 'JEV Highlighter', year: '2026', kind: 'Extension Chrome', what: 'Surligne les sélections préférées par un modèle sur une page de bookmaker ; ne clique et ne parie jamais.', stack: 'JavaScript · node:test', href: 'https://github.com/delikesance/jev-highlighter' },
   { name: 'shh', year: '2026', kind: 'Démon SSH', what: 'Messagerie directe chiffrée sur SSH, sans installation : identité = clé publique, X25519 + ChaCha20-Poly1305.', stack: 'Go', href: 'https://github.com/delikesance/shh' },
   { name: 'Bot Creator', year: '2026', kind: 'Contribution', what: 'Application Flutter pour créer, lancer et superviser des bots Discord ; contribution à la refonte desktop et à la charte graphique (dépôt ketsuna-org).', stack: 'Flutter · Dart' },
+  { name: 'Bot Creator Support', year: '2026', kind: 'Bénévolat', what: 'Bot Discord de support par tickets et panel web multilingue pour la communauté Bot Creator.', stack: 'Bun · TypeScript · SQLite', href: 'https://github.com/delikesance/bot-creator-support' },
+  { name: 'Chessy', year: '2026', kind: 'Contribution', what: 'Échecs en ligne à compétences, projet de garder500 : contributions ponctuelles.', stack: 'Rust · React', href: 'https://github.com/garder500/chessy' },
 ];
 
 export const EXPERIENCE = {
   company: 'Metis Digital',
-  role: 'Développeur fullstack',
-  period: 'Juillet 2025 – aujourd’hui',
-  place: 'Perpignan',
+  role: 'Développeur fullstack indépendant',
+  period: 'Décembre 2024 – aujourd’hui',
+  place: 'Télétravail',
   summary:
-    'Online Booking Tool B2B : les agences y cherchent, réservent et gèrent vols, hôtels, trains et locations. Je livre des intégrations NDC de bout en bout, de la base SQL aux composants Vue.',
+    'Online Booking Tool B2B : les agences y cherchent, réservent et gèrent vols, hôtels, trains et locations. Je développe des intégrations aériennes au sein d’une équipe produit, des parcours backend/frontend aux tests E2E et aux dossiers de certification.',
   items: [
-    { k: 'Vueling', v: 'Intégration complète : shopping, pricing, réservation avec paiement instantané, sièges post-booking, services ancillaires.' },
+    { k: 'Vueling', v: 'Recherche, tarification, réservation, paiement IFG/BSP et 3DS2, annulation, remises résident et famille nombreuse, calendrier tarifaire ; 10 cas de certification E2E.' },
+    { k: 'Singapore Airlines', v: 'Intégration NDC et préparation du tableau de certification.' },
     { k: 'Volotea', v: 'Frais de carte, règlement BSP, réservation combinée ou par tronçon ; correction d’un doublon passager/tarif en sandbox.' },
     { k: 'Air France / KLM', v: 'Correctifs d’adaptateur : normalisation des dates, déduplication des bagages, repli sur les données APIS.' },
     { k: 'Kyte (GDS)', v: 'Agrégateur GDS : distribution des frais, durcissement des erreurs hétérogènes, retries de récupération.' },
-    { k: 'Qualité', v: 'Framework E2E Playwright data-driven (Zod, Page Objects) ; plans de test pour Singapore Airlines.' },
+    { k: 'Tests', v: 'Tests E2E Vueling et Singapore Airlines sur le framework Playwright existant (Zod, Page Objects).' },
   ],
-  stack: ['Nuxt 4', 'Vue 3', 'TypeScript', 'Vuetify', 'Pinia', 'Express', 'Sequelize', 'PostgreSQL', 'Playwright', 'Zod', 'GitLab CI', 'Nix', 'Docker'],
+  stack: ['Nuxt 4', 'Vue 3', 'TypeScript', 'Vuetify', 'Pinia', 'Express', 'Sequelize', 'PostgreSQL', 'Playwright', 'Zod', 'GitLab CI'],
 };
 
 /** Trois piliers, chacun adossé à une preuve concrète (projet ou poste). */
 export const PILLARS: { title: string; text: string; proof: string }[] = [
   {
-    title: 'Livre en production',
-    text: 'Intégrations NDC de bout en bout sur une plateforme de réservation B2B : API Node, base PostgreSQL, interface Nuxt, tests E2E.',
+    title: 'Livre chez un client',
+    text: 'Intégrations aériennes NDC sur une plateforme de réservation B2B : API Node, base PostgreSQL, interface Nuxt, tests E2E, certifications fournisseur.',
     proof: 'Metis Digital',
   },
   {
-    title: 'Construit de zéro',
-    text: 'Systèmes complets en Rust et en Go, du protocole à l’interface : terminal GPU, streaming BitTorrent, moteur d’échecs, démon SSH chiffré.',
-    proof: 'Terminus · Gazes · Chessy · shh',
+    title: 'Conçoit et maintient',
+    text: 'Logiciels en Go et en Rust, du protocole à l’interface : streaming BitTorrent en production, partage pair-à-pair, terminal pour serveurs distants, démon SSH chiffré.',
+    proof: 'Gazes · Cubelink · Terminus · shh',
   },
   {
-    title: 'Agents et outils IA',
-    text: 'Agent de code avec rôles et permissions appliquées dans le code, client MCP, extensions qui branchent des LLM sur le web.',
-    proof: 'Forge · Hive · Claude Everywhere',
+    title: 'Outils et diagnostic',
+    text: 'Outils développeur et extensions qui branchent des LLM sur le web, audits d’accessibilité, tests E2E et bancs de performance.',
+    proof: 'Hive · Claude Everywhere · a11y-report',
   },
 ];
 
@@ -157,5 +144,5 @@ export const SKILL_GROUPS: { title: string; items: string[]; lead?: boolean }[] 
 
 export const LANGUAGES = [
   { name: 'Français', level: 'langue maternelle' },
-  { name: 'Anglais', level: 'professionnel' },
+  { name: 'Anglais', level: 'écrit technique régulier, oral professionnel' },
 ];
