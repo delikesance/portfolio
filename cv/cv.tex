@@ -1,5 +1,5 @@
 \documentclass[10pt,a4paper]{article}
-\usepackage[margin=1.5cm,top=1.3cm,bottom=1.2cm]{geometry}
+\usepackage[margin=1.5cm,top=1.2cm,bottom=1.1cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
@@ -15,53 +15,85 @@
 \renewcommand{\familydefault}{\sfdefault}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
-\setlist[itemize]{leftmargin=1.1em,itemsep=1pt,topsep=2pt,parsep=0pt,label=\textcolor{accent}{\textbullet}}
+\setlist[itemize]{leftmargin=1.1em,itemsep=1.5pt,topsep=2pt,parsep=0pt,label=\textcolor{accent}{\textbullet}}
 \titleformat{\section}{\scshape\small\bfseries\color{accent}\titlerule[0.4pt]\vspace{3pt}}{}{0pt}{}
-\titlespacing*{\section}{0pt}{9pt}{4pt}
+\titlespacing*{\section}{0pt}{10pt}{5pt}
 
-\newcommand{\role}[3]{\textbf{#1} \hfill {\color{muted}\small #3}\\[-1pt]{\color{muted}#2}\par\vspace{2pt}}
+\newcommand{\role}[3]{\textbf{#1} \hfill {\color{muted}\small #3}\\[-1pt]{\color{muted}#2}\par\vspace{3pt}}
+\newcommand{\project}[3]{\textbf{#1} {\color{muted}(#2)} : #3\par\vspace{1pt}}
+\newcommand{\proof}[1]{{\small\color{muted}#1}\par}
+\newcommand{\projectgap}{\vspace{7pt}}
 
 \begin{document}
 
-\noindent\begin{minipage}[c]{2.9cm}
-\includegraphics[width=2.8cm]{photo.jpg}
-\end{minipage}\hspace{0.5cm}%
-\begin{minipage}[c]{\dimexpr\textwidth-3.5cm\relax}
-{\fontsize{27}{29}\selectfont\bfseries Angelo Clauin}\\[4pt]
-{\large\color{accent} Développeur fullstack}\\[7pt]
-{\small\color{muted} Perpignan, France \;\textperiodcentered\; \href{mailto:clauinangelo@proton.me}{clauinangelo@proton.me}}\\[1pt]
-{\small\color{muted} \href{https://github.com/delikesance}{github.com/delikesance} \;\textperiodcentered\; \href{https://delikesance.cloud}{delikesance.cloud}}
+\noindent\begin{minipage}[c]{2.4cm}
+\includegraphics[width=2.3cm]{photo.jpg}
+\end{minipage}\hspace{0.4cm}%
+\begin{minipage}[c]{\dimexpr\textwidth-2.8cm\relax}
+{\fontsize{21}{23}\selectfont\bfseries Angelo Clauin}\\[3pt]
+{\large\color{accent} Consultant indépendant en développement logiciel}\\[2pt]
+{\small TypeScript, Go, Rust \;|\; Intégrations API et développement d'applications}\\[4pt]
+{\small\color{muted} Perpignan, France \;\textperiodcentered\; Télétravail, déplacements ponctuels possibles \;\textperiodcentered\; Disponibilité à convenir}\\[1pt]
+{\small\color{muted} \href{mailto:clauinangelo@proton.me}{clauinangelo@proton.me} \;\textperiodcentered\; \href{https://github.com/delikesance}{github.com/delikesance} \;\textperiodcentered\; \href{https://delikesance.cloud}{delikesance.cloud}}
 \end{minipage}
 
 \section{Profil}
-Développeur fullstack (TypeScript, Node.js, Vue/Nuxt). Chez Metis Digital, je livre des intégrations NDC aériennes de bout en bout, de la base SQL à l'interface, avec les tests E2E qui les tiennent. En dehors, je construis des systèmes complets en Rust et en Go : terminal GPU, agent de code, plateforme de streaming.
+Développeur indépendant, j'interviens sur des intégrations API et des applications métier, de l'implémentation aux tests de validation. En parallèle de ma mission chez Metis Digital, je conçois et maintiens des logiciels en Go et en Rust.
 
-\section{Expérience}
-\role{Metis Digital}{Développeur fullstack, plateforme de réservation B2B (vols, hôtels, trains, voitures) \textperiodcentered{} Perpignan}{juil. 2025 -- aujourd'hui}
+\section{Expérience professionnelle}
+\role{Metis Digital \textperiodcentered{} Développeur fullstack indépendant}{Plateforme de réservation B2B : vols, hôtels, trains et voitures \textperiodcentered{} Télétravail}{déc. 2024 -- aujourd'hui}
+Développement d'intégrations aériennes, des parcours backend/frontend aux tests E2E et aux dossiers de certification, au sein d'une équipe produit.
 \begin{itemize}
-  \item \textbf{Vueling} : intégration complète (shopping, pricing, réservation avec paiement instantané, sièges post-booking) ; 19 services ancillaires vérifiés de bout en bout.
-  \item \textbf{Volotea, Air France / KLM, Kyte (GDS)} : frais de carte, règlement BSP, modes combiné / par tronçon, normalisation des données et retries sur erreurs hétérogènes.
-  \item \textbf{Tests} : framework E2E Playwright data-driven (scénarios validés par Zod, Page Objects) ; plans de test pour Singapore Airlines.
-  \item \textbf{Socle partagé} : utilitaires entre adaptateurs (clonage sûr, normalisation des vols, conversion multi-devises), contributions au moteur de reshop.
+  \item \textbf{Vueling} : parcours de recherche, tarification, réservation, paiement IFG/BSP et 3DS2, annulation, remises résident et famille nombreuse, calendrier tarifaire et persistance des dossiers.
+  \item \textbf{Certification et tests} : 10 cas de certification E2E Vueling et dossiers de preuves ; tests Vueling et Singapore Airlines développés sur le framework Playwright existant.
+  \item \textbf{Singapore Airlines} : développement de l'intégration NDC et préparation du tableau de certification.
+  \item \textbf{Autres fournisseurs} : Volotea et Air France / KLM (frais de carte, règlement BSP, modes de réservation) ; correction de régressions et gestion des erreurs sur Kyte et Air Canada.
+  \item \textbf{Diagnostic technique} : analyse des écarts entre documentation et comportement des API ; échanges directs en anglais avec les supports des compagnies.
 \end{itemize}
-{\small\color{muted} Nuxt 4, Vue 3, TypeScript, Vuetify, Pinia \textperiodcentered{} Node.js, Express, Sequelize, PostgreSQL \textperiodcentered{} Playwright, Zod \textperiodcentered{} GitLab CI, Nix, Docker}
+\vspace{1pt}{\small\color{muted} TypeScript, Node.js, Express, Vue 3, Nuxt, Sequelize, PostgreSQL \textperiodcentered{} Playwright, Zod \textperiodcentered{} GitLab CI}
 
-\section{Projets personnels}
+\section{Projets logiciels sélectionnés}
+\project{\href{https://github.com/delikesance/gazes}{Gazes}}{Go}{plateforme de streaming auto-hébergée, conçue, déployée et maintenue personnellement.}
 \begin{itemize}
-  \item \href{https://github.com/delikesance/terminus}{\textbf{Terminus}} (Rust) : terminal GPU pour SSH, SFTP et WSL, avec coffre chiffré (Argon2id) et palette de commandes. Fork de Rio, interface et fonctions serveur ajoutées.
-  \item \href{https://github.com/delikesance/gazes}{\textbf{Gazes}} (Go) : streaming BitTorrent lu directement dans le navigateur, remux à la volée, comptes avec chiffrement de bout en bout des identifiants.
-  \item \href{https://github.com/delikesance/forge}{\textbf{Forge}} (Rust) : agent de code en terminal, rôles délégués, permissions appliquées dans le code, client MCP.
-  \item \textbf{Chessy} (Rust, React) : échecs en ligne à compétences, moteur validé par perft, classement Elo, IA réglable de 400 à 2800.
+  \item Lecture : téléchargement BitTorrent ordonné, gestion des sauts, remux MP4 fragmenté à la volée.
+  \item Sources peu fiables : classement, basculement automatique, concurrence limitée ; cache mémoire et Redis.
+  \item Exploitation de la production et de la préproduction, déploiement automatisé depuis Forgejo ; gestion des comptes et de l'authentification.
 \end{itemize}
+\proof{Code public, documentation, démonstration vidéo et tests automatisés.}
+\projectgap
+
+\project{\href{https://github.com/delikesance/cubelink}{Cubelink}}{Rust, Tauri}{application de partage pair-à-pair pour Minecraft, avec versions publiées.}
+\begin{itemize}
+  \item Transferts multi-fichiers sur QUIC avec réutilisation des connexions.
+  \item Intégration Win32 de la fenêtre du jeu, agent Java pour ouvrir le LAN automatiquement, paquet Microsoft Store.
+  \item Banc de performance, tests Win32 et 18 scénarios E2E Playwright.
+\end{itemize}
+\projectgap
+
+\project{\href{https://github.com/delikesance/terminus}{Terminus}}{Rust}{terminal fondé sur Rio, enrichi pour la gestion des connexions et sessions distantes.}
+\begin{itemize}
+  \item Gestionnaire d'hôtes, navigateur SFTP, détection WSL et redirections SSH.
+  \item Coffre de données sensibles, palette de commandes et gestion du cycle de vie des sessions.
+  \item Correctifs Windows, WSL et Vulkan ; restauration des couleurs truecolor sous Windows/WSL avec test de régression.
+\end{itemize}
+\proof{Versions publiées et maintenues.}
 
 \section{Compétences}
-\begin{tabular}{@{}p{2.2cm}p{14.4cm}@{}}
-\textbf{Maîtrise} & TypeScript, Vue 3 / Nuxt, Node.js, PostgreSQL, Rust, Go, Docker, Playwright \\[2pt]
-\textbf{Solide} & React, agents LLM / MCP, GitLab CI, sécurité appliquée (Argon2id, X25519), Nix, Linux \\[2pt]
-\textbf{Aussi} & JavaScript, Python (scripts), Bash, Redis, SQLite, IATA NDC \\
-\end{tabular}
+{\small
+\begin{tabular}{@{}p{3.4cm}p{13.8cm}@{}}
+\textbf{Langages et web} & TypeScript, Go, Rust, JavaScript, SQL \textperiodcentered{} Node.js, Express, Vue 3, Nuxt, Sequelize \\
+\textbf{Données} & PostgreSQL, Redis, SQLite \\
+\textbf{Tests et diagnostic} & Playwright, Zod, tests E2E et de régression, benchmarks, analyse de logs \\
+\textbf{Applications et réseau} & Tauri, outils CLI/TUI, QUIC, SSH/SFTP, intégration Win32, FFmpeg \\
+\textbf{Environnement} & Linux, Docker, GitLab CI, Forgejo, Nix \\
+\textbf{Métier} & API aériennes IATA NDC, réservation, paiement, préparation de certifications fournisseur \\
+\end{tabular}}
 
-\section{Langues et formation}
-Français (langue maternelle) \textperiodcentered{} Anglais (professionnel) \;\textperiodcentered{}\; Autodidacte : je programme depuis l'enfance, professionnellement depuis 2025.
+\section{Contributions et parcours}
+{\small%
+\textbf{Bot Creator} (bénévolat) : bot de support Discord à tickets et panel web multilingue ; contributions à l'application.\\[2pt]%
+\textbf{War of Code} (octobre 2026) : développement de dk-table, un tableur desktop.\\[2pt]%
+\textbf{Parcours} : autodidacte ; programmation depuis l'enfance, activité professionnelle depuis décembre 2024.\\[2pt]%
+\textbf{Langues} : français (maternelle), anglais (écrit technique régulier, oral professionnel).\par}
 
 \end{document}
